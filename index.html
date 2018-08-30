@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Linha do Tempo | SAIEMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <div class="timeline__janela">
+            <div class="janela__topo">
+                <h1 class="janela-topo__titulo">Linha do tempo</h1>
+                <img class="janela-topo__icone-fechar" onclick="detona()" src="icons/icon-close.png" width="18" height="18">
+            </div>
+            <div class="janela__corpo" id="janelaCorpo">
+                <div class="nova-observacao" id="janelaNovaObservacao">
+                    <header class="nova-observacao__cabecalho">
+                        <h2 class="nova-observacao__titulo">Nova observação</h2>
+                    </header>
+                    <main class="nova-observacao__corpo">
+                        <label class="input__dia_label">Data:
+                            <input type="date" class="input__dia" value="" id="datePicker">
+                        </label>
+                        <label class="input__autor"><span class="input__autor_label">João Roberto:</span>
+                                <textarea class="input__text-area" rows="3"></textarea>
+                        </label>
+                        
+                    </main>
+                    <footer class="nova-observacao__acoes">
+                        <button class="nova-observacao__cancelar" onclick="cancelarNovaObservacao()">Cancelar</button>
+                        <button class="nova-observacao__salvar" onclick="publicarNovaObservacao()">Salvar</button>
+                    </footer>
+                </div>
+                <button class="timeline__btn-adicionar" onclick="adicionarNovaObservacao()" id="adicionarNovaObservacao">+ Adicionar observação</button>
+                <div class="corpo__container">
+                    <div class="timeline__item">
+                        <div class="timeline__icone item-sistema">
+                            <img src="icons/icon-13-encerrada.png" width="23" height="23">
+                        </div>
+                        <div class="timeline__dados item-sistema">
+                            <div class="linha">
+                                <div class="coluna3">
+                                    <p class="timeline-item__data">17/08/2018</p>
+                                    <p class="timeline-item__status">Encerrada</p>
+                                </div>
+                                <div>
+                                    <div class="icone-info">
+                                        <p class="info__aprovada" title="Este status indica que a foguete foi encerrado com sucesso">i</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__icone item-sistema">
+                            <img src="icons/icon-12-relatorio-gerado.png" width="23" height="23">
+                        </div>
+                        <div class="timeline__dados item-sistema">
+                            <div class="linha">
+                                <div class="coluna3">
+                                    <p class="timeline-item__data">16/08/2018</p>
+                                    <p class="timeline-item__status">Relatório gerado</p>
+                                </div>
+                                <div>
+                                    <div class="icone-info">
+                                        <p class="info__aprovada" title="Este status indica que o foguete pode decolar a qualquer momento">i</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__icone item-sistema">
+                            <img src="icons/icon-11-relatorio-em-edicao.png" width="23" height="23">
+                        </div>
+                        <div class="timeline__dados item-sistema">
+                            <div class="linha">
+                                <div class="coluna3">
+                                    <p class="timeline-item__data">15/08/2018</p>
+                                    <p class="timeline-item__status">Relatório em edição</p>
+                                </div>
+                                <div>
+                                    <div class="icone-info">
+                                        <p class="info__aprovada" title="Este status indica que o relatório do fogeute está sendo editado">i</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__icone item-sistema">
+                            <img src="icons/icon-10-avaliador-terminou.png" width="23" height="23">
+                        </div>
+                        <div class="timeline__dados item-sistema">
+                            <div class="linha">
+                                <div class="coluna3">
+                                    <p class="timeline-item__data">14/08/2018</p>
+                                    <p class="timeline-item__status">O gerente confirmou a entrega</p>
+                                </div>
+                                <div>
+                                    <div class="icone-info">
+                                        <p class="info__aprovada" title="Este status indica que o foguete está para ser entregue">i</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__icone item-observacao">
+                            <img src="icons/icon-09-observacao.png" width="23" height="23">
+                        </div>
+                        <div class="timeline__dados item-observacao">
+                            <div class="linha">
+                                <div class="coluna3">
+                                    <p class="timeline-item__data">13/08/2018</p>
+                                    <p class="timeline-item__status">João Roberto:</p>
+                                    <p class="timeline-item__observacao">Um grande problema foi detectado na estratosfera. O líquido de gás que alimenta o foguete não pode ser despressurizado a tempo. Temos receio de que a agência não consiga lançar o foguete a tempo no fim-de-semana.</p>
+                                </div>
+                                <div>
+                                    <div class="icone-info">
+                                        <p class="info__aprovada" title="Este status indica que a escola teve o seu questionário respondido">i</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        var botaoAdicionarObservacao = document.getElementById('adicionarNovaObservacao');
+        var janelaNovaObservacao = document.getElementById('janelaNovaObservacao');
+        
+        function detona(){
+            document.body.innerHTML = "";
+        }
+
+        function adicionarNovaObservacao(){
+            botaoAdicionarObservacao.style.display = "none";
+            janelaNovaObservacao.style.display = "block";
+        }
+        
+        function cancelarNovaObservacao(){
+            botaoAdicionarObservacao.style.display = "block";
+            janelaNovaObservacao.style.display = "none";
+        }
+        document.getElementById('datePicker').valueAsDate = new Date();
+        
+    </script>
+</body>
+</html>
